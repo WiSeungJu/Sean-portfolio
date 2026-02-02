@@ -1,5 +1,6 @@
 "use client";
 
+import Link from 'next/link';
 import styles from './sections.module.css';
 import { useLanguage } from '@/context/LanguageContext';
 
@@ -35,14 +36,20 @@ const Projects = () => {
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1rem' }}>
                             <div>
                                 <h3 style={{ fontSize: '1.75rem', fontWeight: 700, marginBottom: '0.5rem', color: 'hsl(var(--foreground))' }}>
-                                    <a href={getProjectLink(index)} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
-                                        {project.title}
-                                        {getProjectLink(index) !== '#' && <span style={{ marginLeft: '0.5rem', fontSize: '1rem', verticalAlign: 'middle', opacity: 0.7 }}>↗</span>}
-                                    </a>
+                                    <Link href={`/projects/${project.id || ''}`} style={{ textDecoration: 'none', cursor: 'pointer' }} className={styles.projectTitleLink}>
+                                        {project.title} <span style={{ fontSize: '0.8em', opacity: 0.5, marginLeft: '0.3rem' }}>↗</span>
+                                    </Link>
                                 </h3>
                                 <p style={{ fontSize: '1.1rem', color: 'hsl(var(--primary))', fontWeight: 600 }}>{project.role}</p>
                             </div>
-                            <span style={{ fontSize: '1rem', color: 'hsl(var(--muted-foreground))', fontFamily: 'var(--font-geist-mono)' }}>{project.period}</span>
+                            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '0.5rem' }}>
+                                <span style={{ fontSize: '1rem', color: 'hsl(var(--muted-foreground))', fontFamily: 'var(--font-geist-mono)' }}>{project.period}</span>
+                                {getProjectLink(index) !== '#' && (
+                                    <a href={getProjectLink(index)} target="_blank" rel="noopener noreferrer" style={{ fontSize: '0.9rem', color: 'hsl(var(--muted-foreground))', textDecoration: 'underline' }}>
+                                        Visit Site
+                                    </a>
+                                )}
+                            </div>
                         </div>
 
                         {/* Summary */}

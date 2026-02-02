@@ -22,6 +22,7 @@ export const translations = {
         },
         projects: [
             {
+                id: "planfit",
                 title: "Planfit (플랜핏)",
                 period: "2025.06 - 2025.12",
                 role: "Product Owner (Intern)",
@@ -35,6 +36,7 @@ export const translations = {
                 tech_stack: ["A/B Testing", "Amplitude", "React Native", "Gen AI"]
             },
             {
+                id: "gourmevel",
                 title: "Gourmevel (고메블)",
                 period: "2022.05 - Present",
                 role: "Founder & Editor-in-Chief",
@@ -47,6 +49,7 @@ export const translations = {
                 tech_stack: ["Viral Content", "Brand Partnership", "SEO/Algorithm", "Multi-Channel"]
             },
             {
+                id: "drinkig",
                 title: "Drinkig (드링키지)",
                 period: "2025.03 - Present",
                 role: "Founder & Solo Developer",
@@ -82,6 +85,7 @@ export const translations = {
         },
         projects: [
             {
+                id: "planfit",
                 title: "Planfit",
                 period: "2025.06 - 2025.12",
                 role: "Product Owner (Intern)",
@@ -95,6 +99,7 @@ export const translations = {
                 tech_stack: ["A/B Testing", "Amplitude", "React Native", "Gen AI"]
             },
             {
+                id: "gourmevel",
                 title: "Gourmevel",
                 period: "2022.05 - Present",
                 role: "Founder & Editor-in-Chief",
@@ -107,6 +112,7 @@ export const translations = {
                 tech_stack: ["Viral Content", "Brand Partnership", "SEO/Algorithm", "Multi-Channel"]
             },
             {
+                id: "drinkig",
                 title: "Drinkig",
                 period: "2025.03 - Present",
                 role: "Founder & Solo Developer",
