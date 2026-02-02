@@ -18,8 +18,8 @@ export const metadata: Metadata = {
 };
 
 import { LanguageProvider } from "@/context/LanguageContext";
-import { ViewModeProvider } from "@/context/ViewModeContext";
-import ClientLayout from "@/components/layout/ClientLayout";
+// ClientLayout handles the client-side context and layout structure
+import ClientLayout from "../components/layout/ClientLayout";
 
 export default function RootLayout({
   children,
@@ -29,13 +29,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <ViewModeProvider>
-          <LanguageProvider>
-            <ClientLayout>
-              {children}
-            </ClientLayout>
-          </LanguageProvider>
-        </ViewModeProvider>
+        <LanguageProvider>
+          <ClientLayout>
+            {children}
+          </ClientLayout>
+        </LanguageProvider>
       </body>
     </html>
   );

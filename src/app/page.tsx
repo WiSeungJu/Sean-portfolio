@@ -11,39 +11,12 @@ import Projects from "@/components/sections/Projects";
 // But wait, the user wants "Career & Experience (Timeline)".
 // Let's import the ExperienceItem and build the section here or new component.
 
-import ExperienceItem from "@/components/career/ExperienceItem";
-import styles from "@/components/career/career.module.css";
-import sectionStyles from "@/components/sections/sections.module.css";
-import { useLanguage } from "@/context/LanguageContext";
-
-const CareerSection = () => {
-  const { t } = useLanguage();
-  return (
-    <section className={`container ${sectionStyles.section}`}>
-      <h2 className={sectionStyles.sectionTitle}>{t.career.title}</h2>
-      <div className={styles.timeline}>
-        {t.career.items.map((exp, index) => (
-          <ExperienceItem
-            key={index}
-            role={exp.role}
-            company={exp.company}
-            period={exp.period}
-            description={exp.description}
-            tags={[]} // Tags are optional or can be added if needed
-          />
-        ))}
-      </div>
-    </section>
-  );
-};
-
 export default function Home() {
   return (
     <>
       <div id="home"><Hero /></div>
       <div id="about"><About /></div>
       <div id="projects"><Projects /></div>
-      <div id="career"><CareerSection /></div>
     </>
   );
 }

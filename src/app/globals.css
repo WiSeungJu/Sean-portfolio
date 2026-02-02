@@ -38,20 +38,17 @@
   --max-width: 1000px;
   /* Slightly narrower for readability */
   --header-height: 5rem;
-}
 
-/* Marketing Mode (Green Theme) */
-[data-mode='marketing'] {
+  --letter-spacing-base: -0.02em;
+  --letter-spacing-heading: -0.03em;
+
+  /* Unified Theme (Neon Green Accent) */
   --primary: 142 70% 49%;
   /* Neon Green */
   --highlight: 142 70% 49%;
-}
 
-/* PO Mode (Orange/Blue Theme) */
-[data-mode='po'] {
-  --primary: 32 95% 44%;
-  /* Orange */
-  --highlight: 32 95% 44%;
+  /* Background Pattern - Subtle Gradient */
+  --bg-pattern: radial-gradient(circle at 50% 50%, hsla(var(--primary) / 0.1), transparent 70%);
 }
 
 * {

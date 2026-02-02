@@ -11,6 +11,20 @@
     text-align: center;
 }
 
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: var(--header-height);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    transition: all 0.5s ease;
+}
+
+/* Unified Hero Background */
 .hero::before {
     content: '';
     position: absolute;
@@ -18,30 +32,34 @@
     left: 50%;
     width: 60vw;
     height: 60vh;
-    background: radial-gradient(circle at center, hsla(var(--primary) / 0.15), transparent 70%);
-    /* Primary color glow */
+    background: var(--bg-pattern);
     transform: translate(-50%, -50%);
     pointer-events: none;
     z-index: 0;
+    filter: blur(80px);
 }
 
 .heroTitle {
-    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    /* Increased size for impact */
     font-weight: 800;
     line-height: 1.1;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.04em;
+    /* Tighter for display text */
     color: hsl(var(--foreground));
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     z-index: 1;
+    transition: color 0.3s ease;
 }
 
 .heroSubtitle {
     font-size: clamp(1.1rem, 2.5vw, 1.5rem);
     color: hsl(var(--muted-foreground));
-    max-width: 700px;
-    margin-bottom: 3rem;
+    max-width: 650px;
+    margin-bottom: 4rem;
     line-height: 1.6;
     z-index: 1;
+    transition: all 0.3s ease;
 }
 
 .toggleContainer {
@@ -122,7 +140,9 @@
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: 4rem;
-    align-items: center;
+    align-items: start;
+    /* Align top for better table view */
+    transition: all 0.3s ease;
 }
 
 .profileImagePlaceholder {
@@ -134,6 +154,8 @@
     align-items: center;
     justify-content: center;
     border: 1px solid hsla(var(--border));
+    font-weight: 600;
+    color: hsl(var(--muted-foreground));
 }
 
 .sectionTitle {
@@ -141,38 +163,71 @@
     font-weight: 800;
     margin-bottom: 2rem;
     color: hsl(var(--foreground));
+    letter-spacing: -0.03em;
 }
 
 .aboutDescription {
     font-size: 1.25rem;
     color: hsl(var(--muted-foreground));
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
+    line-height: 1.7;
 }
 
+/* Marketing Mode: Visual Layout */
 .specItem {
     margin-bottom: 1rem;
     font-size: 1.1rem;
-    display: flex;
-    flex-direction: column;
 }
 
 .keywordList {
     display: flex;
     gap: 0.75rem;
     flex-wrap: wrap;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
 }
 
 .keyword {
     color: hsl(var(--primary));
     font-family: var(--font-geist-mono);
     font-size: 0.9rem;
+    background: hsla(var(--primary) / 0.1);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+}
+
+/* PO Mode: Tech Spec Table Layout */
+.techSpecTable {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--font-geist-mono);
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+}
+
+.techSpecTable th {
+    text-align: left;
+    padding: 1rem;
+    border-bottom: 1px solid hsla(var(--border));
+    color: hsl(var(--muted-foreground));
+    font-weight: 500;
+    width: 150px;
+}
+
+.techSpecTable td {
+    padding: 1rem;
+    border-bottom: 1px solid hsla(var(--border));
+    color: hsl(var(--foreground));
+}
+
+.skillGroup {
+    margin-top: 1rem;
 }
 
 .skillTitle {
     font-size: 1.1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
     color: hsl(var(--foreground));
+    font-weight: 700;
 }
 
 .skillBadges {
@@ -184,15 +239,21 @@
 .badge {
     padding: 0.4rem 1rem;
     background: hsla(var(--card));
-    border: 1px solid hsla(var(--primary) / 0.3);
+    border: 1px solid hsla(var(--border));
     border-radius: 999px;
     font-size: 0.9rem;
     color: hsl(var(--foreground));
+    transition: all 0.2s;
+}
+
+.badge:hover {
+    border-color: hsl(var(--primary));
+    transform: translateY(-2px);
 }
 
 @media (max-width: 768px) {
     .aboutContainer {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
         gap: 2rem;
     }
 }
