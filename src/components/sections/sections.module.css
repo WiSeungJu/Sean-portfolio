@@ -1,0 +1,83 @@
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: var(--header-height);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50vw;
+    height: 50vh;
+    background: radial-gradient(circle at center, hsla(var(--foreground) / 0.03), transparent 70%);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.heroTitle {
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: hsl(var(--foreground));
+    margin-bottom: 1.5rem;
+}
+
+.heroSubtitle {
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    color: hsl(var(--muted-foreground));
+    max-width: 600px;
+    margin-bottom: 2.5rem;
+    line-height: 1.5;
+}
+
+.ctaGroup {
+    display: flex;
+    gap: 1rem;
+}
+
+.buttonPrimary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 3.5rem;
+    padding: 0 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: hsl(var(--background));
+    background: hsl(var(--foreground));
+    border-radius: var(--radius);
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.buttonPrimary:hover {
+    transform: translateY(-2px);
+    background: hsl(0, 0%, 90%);
+    /* Slightly darker white */
+}
+
+.buttonSecondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 3.5rem;
+    padding: 0 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: hsl(var(--foreground));
+    background: transparent;
+    border: 1px solid hsl(var(--border));
+    border-radius: var(--radius);
+    transition: background-color 0.2s;
+}
+
+.buttonSecondary:hover {
+    background: hsla(var(--foreground) / 0.05);
+}

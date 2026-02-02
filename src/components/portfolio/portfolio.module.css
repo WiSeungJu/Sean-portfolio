@@ -1,0 +1,90 @@
+.portfolioContainer {
+    padding-top: var(--header-height);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    background: hsla(var(--card) / 0.5);
+    border: 1px solid hsla(var(--border) / 0.5);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: transform 0.2s, border-color 0.2s;
+    height: 100%;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    border-color: hsla(var(--foreground) / 0.2);
+}
+
+.imagePlaceholder {
+    width: 100%;
+    padding-bottom: 56.25%;
+    /* 16:9 aspect ratio */
+    background: hsla(var(--secondary) / 0.3);
+    position: relative;
+}
+
+.cardContent {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 1rem;
+}
+
+.title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: hsl(var(--foreground));
+}
+
+.description {
+    font-size: 0.95rem;
+    color: hsl(var(--muted-foreground));
+    line-height: 1.6;
+    flex: 1;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tag {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.5rem;
+    background: hsla(var(--primary) / 0.1);
+    color: hsl(var(--foreground));
+    border: 1px solid hsla(var(--border));
+    border-radius: 4px;
+}
+
+.links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.link {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: hsl(var(--foreground));
+    text-decoration: underline;
+    text-decoration-color: hsla(var(--foreground) / 0.3);
+    text-underline-offset: 4px;
+}
+
+.link:hover {
+    color: hsl(var(--primary));
+    text-decoration-color: hsl(var(--primary));
+}
