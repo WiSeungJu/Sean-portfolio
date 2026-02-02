@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -19,6 +17,10 @@ export const metadata: Metadata = {
   description: "Personal portfolio and career records of Sean Wi.",
 };
 
+import { LanguageProvider } from "@/context/LanguageContext";
+import { ViewModeProvider } from "@/context/ViewModeContext";
+import ClientLayout from "@/components/layout/ClientLayout";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -27,13 +29,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <Header />
-        <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-          <div style={{ flex: 1 }}>
-            {children}
-          </div>
-          <Footer />
-        </div>
+        <ViewModeProvider>
+          <LanguageProvider>
+            <ClientLayout>
+              {children}
+            </ClientLayout>
+          </LanguageProvider>
+        </ViewModeProvider>
       </body>
     </html>
   );
